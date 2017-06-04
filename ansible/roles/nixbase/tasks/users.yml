@@ -1,0 +1,8 @@
+---
+- name: add users
+  user:
+    name: "{{item}}"
+    shell: /bin/bash
+  with_items: "{{ users.hadoop_users }}"
+  tags: create_users
+...
