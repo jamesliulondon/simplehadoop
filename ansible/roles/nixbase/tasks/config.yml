@@ -1,0 +1,12 @@
+---
+- name: copy hostfile to remotes
+  copy:
+    src: hostfile.txt
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+  tags: gen_hostfile
+
+...
