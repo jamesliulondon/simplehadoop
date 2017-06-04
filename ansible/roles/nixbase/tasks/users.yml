@@ -5,4 +5,12 @@
     shell: /bin/bash
   with_items: "{{ users.hadoop_users }}"
   tags: create_users
+
+- name: Set authorized key took from file
+  authorized_key:
+    user: "{{ item }}"
+    state: present
+    key: "{{ lookup('file', '../terraform/templates/cloudera_training.pub') }}"
+  with_items: "{{ users.hadoop_users }}"
+  tags: create_users
 ...

@@ -1,20 +1,12 @@
 ---
-- name: generate hostfile
-  command: ./gen_hostfile.py
-  args:
-      chdir: "{{ role_path }}/files"
-  delegate_to: 127.0.0.1
-  run_once: true
-  register: hosttext
-  tags: gen_hostfile
-
-- name: save output to text
+- name: copy hostfile to remotes
   copy:
-    content: "{{ hosttext.stdout }}"
-    dest: "{{ role_path }}/files/hostfile.txt"
-  delegate_to: 127.0.0.1
-  run_once: true
-  register: hosttext
+    src: hostfile.txt
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
   tags: gen_hostfile
 
 ...
