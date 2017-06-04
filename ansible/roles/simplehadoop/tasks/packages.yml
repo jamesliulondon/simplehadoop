@@ -1,4 +1,14 @@
 ---
-  - name: download hadoop
-    
+- name: download hadoop
+  command: "wget -O {{hadoop_archive}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{hadoop_src_url}} creates={{hadoop_archive}}"
+
+- name: Unpack archive
+  command: "tar -zxf {{hadoop_archive}} -C {{download_folder}} creates={{hadoop_name}}"
+
+- name: Fix ownership
+  file: state=directory path={{hadoop_name}} owner=hadoop group=hadoop recurse=yes
+
+
+- name: Clean up
+  file: state=absent path={{hadoop_archive}}
 ...

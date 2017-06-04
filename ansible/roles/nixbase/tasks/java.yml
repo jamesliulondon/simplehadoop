@@ -19,4 +19,4 @@
   command: 'alternatives --set "java" "{{java_name}}/bin/java"'
 
 - name: Clean up
-  file: state=absent path={{java_archive}}..
+  file: state=absent path={{java_archive}}
