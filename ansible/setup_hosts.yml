@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars:
+    tfdata: "{{ (lookup('file', '../terraform/terraform.tfstate') | from_json).modules[0].resources }}"
+  roles:
+    -  base
+...

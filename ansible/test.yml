@@ -1,0 +1,4 @@
+---
+- hosts: tag_Project_mesos01
+  tasks:
+    - command: pwd

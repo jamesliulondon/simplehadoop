@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/jamesliu/code/ec2constellation","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
