@@ -13,4 +13,14 @@
     key: "{{ lookup('file', '../terraform/templates/cloudera_training.pub') }}"
   with_items: "{{ users.hadoop_users }}"
   tags: create_users
+
+- name: Set authorized key took from file
+  copy:
+    dest: /home/hadoop/.ssh/id_rsa
+    content: "{{ lookup('file', '../terraform/templates/cloudera_training.key') }}"
+    mode: 0400
+    owner: hadoop
+    group: hadoop
+  with_items: "{{ users.hadoop_users }}"
+  tags: create_users
 ...
