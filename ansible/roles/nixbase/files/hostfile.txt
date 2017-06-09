@@ -1,0 +1,5 @@
+10.0.3.150        hdp1-cls1-node0
+10.0.1.154        hdp1-cls1-master1
+10.0.3.126        hdp1-cls1-master0
+10.0.1.161        hdp1-cls1-node1
+10.0.3.15        hdp1-cls1-bootstrap
