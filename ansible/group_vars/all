@@ -5,6 +5,7 @@ download_folder: /opt
 
 java_archive: "{{download_folder}}/jdk-8u131-linux-x64.tar.gz"
 java_name: "{{download_folder}}/jdk1.8.0_131"
+JAVA_HOME: "/opt/jdk1.8.0_131"
 
 users:
   hadoop_users:

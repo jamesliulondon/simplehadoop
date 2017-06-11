@@ -25,6 +25,7 @@ resource "aws_instance" "bootstrap_node" {
     Name = "${var.project}-${var.environment}-bootstrap"
     Environment = "${var.environment}"
     Project = "${var.project}"
+    Tier = "${var.project}-${var.environment}-bootstrap"
    }
 
   connection {

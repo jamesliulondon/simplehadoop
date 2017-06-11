@@ -15,6 +15,11 @@ variable "aws_region" {
   default = "eu-west-1"
 }
 
+variable "whitelisted_source" {
+   description = "this is the public address of your PC"
+   default = "85.255.235.215/32"
+}
+
 variable "ami" {
     #default = "ami-f9dd458a"
     default =  "ami-13f84d60"
@@ -30,10 +35,7 @@ variable "ssh_key" {
   }
 }
 
-variable "whitelisted_source" {
-   description = "this is the public address of your PC"
-   default = "94.118.128.0/32"
-}
+
 variable "cidr_block" {
   description = "CIDR block you want to have in your VPC"
   default = "10.0.0.0/16"
@@ -79,9 +81,9 @@ variable "node_count" {
   type = "map"
 
   default = {
-    bootstrap = 0
+    bootstrap = 1
     master  = 1
-    cluster  = 0
+    cluster  = 4
   }
 }
 

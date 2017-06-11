@@ -1,4 +1,66 @@
 ---
+- name: generate masters_list
+  command: awk '/master/{print $NF}' /etc/hosts
+  become: no
+  args:
+      chdir: "{{ role_path }}/files"
+  delegate_to: 127.0.0.1
+  run_once: true
+  register: masters_list
+  tags: gen_hostfile
 
+- name: generate slaves_list
+  command: awk '/master/{print $NF}' /etc/hosts
+  become: no
+  args:
+      chdir: "{{ role_path }}/files"
+  delegate_to: 127.0.0.1
+  run_once: true
+  register: slaves_list
+  tags: gen_hostfile
+
+- name: save masters_list_file
+  become: no
+  copy:
+    content: "{{ masters_list.stdout }}"
+    dest: "{{ role_path }}/files/masters.txt"
+  delegate_to: 127.0.0.1
+
+- name: save slaves_list_file
+  become: no
+  copy:
+    content: "{{ slaves_list.stdout }}"
+    dest: "{{ role_path }}/files/slaves.txt"
+  delegate_to: 127.0.0.1
+
+- name: upload master_list_file
+  copy:
+    src: masters.txt
+    dest: /etc/hosts
+    owner: hadoop
+    group: hadoop
+    mode: 0644
+    backup: yes
+  tags: gen_hostfile
+
+- name: upload master_list_file
+  copy:
+    src: slaves.txt
+    dest: /opt/hadoop/etc/hadoop/masters
+    owner: hadoop
+    group: hadoop
+    mode: 0644
+    backup: yes
+  tags: gen_hostfile
+
+- name: upload slaves_list_file
+  copy:
+    src: slaves.txt
+    dest: /opt/hadoop/etc/hadoop/slaves
+    owner: hadoop
+    group: hadoop
+    mode: 0644
+    backup: yes
+  tags: gen_hostfile
 
 ...

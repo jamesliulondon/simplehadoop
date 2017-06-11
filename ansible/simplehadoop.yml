@@ -1,5 +1,5 @@
 ---
-- hosts: tag_Project_hdp1
+- hosts: tag_Tier_node
   roles:
     - simplehadoop
 ...

@@ -1,5 +1,6 @@
 ---
+    
 - hosts: tag_Project_hdp1
-  roles: 
+  roles:
     - nixbase
 ...

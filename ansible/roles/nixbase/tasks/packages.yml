@@ -1,6 +1,13 @@
 ---
+- name: create base packages
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - wget
+
 - name: generate hostfile
   command: ./gen_hostfile.py
+  become: no
   args:
       chdir: "{{ role_path }}/files"
   delegate_to: 127.0.0.1
@@ -13,8 +20,5 @@
     content: "{{ hosttext.stdout }}"
     dest: "{{ role_path }}/files/hostfile.txt"
   delegate_to: 127.0.0.1
-  run_once: true
-  register: hosttext
-  tags: gen_hostfile
 
 ...

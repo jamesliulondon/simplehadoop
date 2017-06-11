@@ -1,5 +1,5 @@
 ---
-- include: java.yml
 - include: packages.yml
+- include: java.yml
 - include: users.yml
 - include: config.yml

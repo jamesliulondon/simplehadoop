@@ -24,6 +24,7 @@ resource "aws_instance" "cluster" {
     Name = "${var.project}-${var.environment}-node${count.index}"
     Environment = "${var.environment}"
     Project = "${var.project}"
+    Tier = "${var.project}-${var.environment}-node"
    }
 
 

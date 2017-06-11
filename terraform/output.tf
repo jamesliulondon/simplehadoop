@@ -12,3 +12,4 @@ output "cluster" {
 }
 output "addresses" {
   value = "${node_count}"
+}

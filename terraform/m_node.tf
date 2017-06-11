@@ -24,6 +24,7 @@ resource "aws_instance" "master" {
     Name = "${var.project}-${var.environment}-master${count.index}"
     Environment = "${var.environment}"
     Project = "${var.project}"
+    Tier = "${var.project}-${var.environment}-master"
    }
 
 
