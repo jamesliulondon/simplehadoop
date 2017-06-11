@@ -9,4 +9,12 @@
     backup: yes
   tags: gen_hostfile
 
+- name: stop iptables
+  service: name=iptables state=stopped
+  ignore_errors: yes
+
+- name: disbale on iptable on boot
+  service: name=iptables enabled=no
+  ignore_errors: yes
+
 ...

@@ -1,9 +1,12 @@
 ---
+
 - name: create base packages
   yum:
     name: "{{ item }}"
   with_items:
     - wget
+    - gcc
+    - python-devel
 
 - name: generate hostfile
   command: ./gen_hostfile.py
@@ -16,6 +19,7 @@
   tags: gen_hostfile
 
 - name: save output to text
+  become: no
   copy:
     content: "{{ hosttext.stdout }}"
     dest: "{{ role_path }}/files/hostfile.txt"

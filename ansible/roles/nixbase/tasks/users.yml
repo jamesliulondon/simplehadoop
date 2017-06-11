@@ -1,4 +1,12 @@
 ---
+
+- name: flush uers
+  user:
+    name: "{{item}}"
+    shell: /bin/bash
+    state: absent
+  with_items: "{{ users.hadoop_users }}"
+
 - name: add users
   user:
     name: "{{item}}"

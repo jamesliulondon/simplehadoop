@@ -22,7 +22,8 @@ variable "whitelisted_source" {
 
 variable "ami" {
     #default = "ami-f9dd458a"
-    default =  "ami-13f84d60"
+    #default =  "ami-13f84d60"
+    default =  "ami-061b1560"
 }
 
 variable "ssh_key" {
@@ -107,5 +108,5 @@ variable "cidr_allocation_subnets" {
 
 variable "instance_type" {
   description =  "AWS instance type"
-  default = "t2.micro"
+  default = "t2.medium"
 }
