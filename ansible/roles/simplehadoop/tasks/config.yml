@@ -1,6 +1,6 @@
 ---
 - name: generate masters_list
-  command: awk '/master/{print $NF}' /etc/hosts
+  command: gen_masterslave.py -t master
   become: no
   args:
       chdir: "{{ role_path }}/files"
@@ -10,7 +10,7 @@
   tags: gen_hostfile
 
 - name: generate slaves_list
-  command: awk '/master/{print $NF}' /etc/hosts
+  command: gen_masterslave.py -t slave
   become: no
   args:
       chdir: "{{ role_path }}/files"

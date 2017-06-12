@@ -1,6 +1,7 @@
 ---
-    
+
 - hosts: tag_Project_hdp1
+  become: yes
   roles:
     - nixbase
 ...
