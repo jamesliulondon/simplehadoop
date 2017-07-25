@@ -17,12 +17,12 @@ variable "aws_region" {
 
 variable "whitelisted_source" {
    description = "this is the public address of your PC"
-   default = "85.255.235.215/32"
+   default = "185.69.144.36/32"
 }
 
 variable "ami" {
     #default = "ami-f9dd458a"
-    #default =  "ami-13f84d60"
+    #default = "ami-13f84d60"
     default =  "ami-061b1560"
 }
 
@@ -82,9 +82,9 @@ variable "node_count" {
   type = "map"
 
   default = {
-    bootstrap = 1
-    master  = 1
-    cluster  = 4
+    bootstrap = 0
+    master  = 0
+    cluster  = 2
   }
 }
 
@@ -108,5 +108,11 @@ variable "cidr_allocation_subnets" {
 
 variable "instance_type" {
   description =  "AWS instance type"
-  default = "t2.medium"
+  #default = "t2.medium"
+  default = "t2.xlarge"
+}
+
+variable "rbd_size" {
+  description =  "AWS Root Block Drive size"
+  default = "30"
 }

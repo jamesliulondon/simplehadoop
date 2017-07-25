@@ -1,0 +1,9 @@
+- name: Current Ambari Repo
+  yum_repository:
+    name: ambari-2.5.1.0
+    description: ambari Version - ambari-2.5.1.0
+    file: ambari
+    baseurl: http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0
+    gpgcheck: yes
+    gpgkey: http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+  tags: repo

@@ -1,0 +1,20 @@
+---
+- name: hadoop folder
+  file:
+    path: /hadoop
+    state: directory
+
+
+- filesystem:
+    fstype: ext4
+    dev: /dev/xvdh
+  ignore_errors: yes
+
+- name: Mount up device by label
+  mount:
+    path: /hadoop
+    src: /dev/xvdh
+    fstype: ext4
+    state: present
+
+...

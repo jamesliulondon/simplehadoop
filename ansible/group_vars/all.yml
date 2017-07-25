@@ -9,9 +9,12 @@ JAVA_HOME: "/opt/jdk1.8.0_131"
 
 users:
   hadoop_users:
-    - hadoop
+    - test
 
 hadoop_src_url: http://apache.mesi.com.ar/hadoop/common/hadoop-2.8.0/hadoop-2.8.0.tar.gz
 hadoop_archive: "{{download_folder}}/hadoop-2.8.0.tar.gz"
 hadoop_name: "{{download_folder}}/hadoop-2.8.0"
+
+ambari:
+  repo_url: http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.4.1.0/ambari.repo
 ...

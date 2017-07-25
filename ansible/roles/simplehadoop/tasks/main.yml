@@ -1,4 +1,5 @@
 ---
+- include: ambari_only.yml
 - include: packages.yml
 - include: config.yml
 ...

@@ -16,7 +16,7 @@ resource "aws_subnet" "private_subnets" {
   map_public_ip_on_launch = true
   vpc_id            = "${aws_vpc.main.id}"
   cidr_block        = "${lookup(var.cidr_allocation_subnets, "private${(count.index + 1)%3}")}"
-  availability_zone = "${lookup(var.availability_zones, "az${(count.index + 1)%3}")}"
+  availability_zone = "${lookup(var.availability_zones, "az${(count.index)%3}")}"
   tags {
     Name = "private ${count.index + 1}"
     Environment = "${var.environment}"
