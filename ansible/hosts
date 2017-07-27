@@ -1,4 +1,4 @@
 ---
 [tag_Project_hdp1]
-hdp1-cls1-node0
-hdp1-cls1-node1
+hdp1-cls1-node0 local_cluster=cluster_a remote_cluster=cluster_b
+hdp1-cls1-node1 local_cluster=cluster_b remote_cluster=cluster_a

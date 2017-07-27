@@ -1,0 +1,19 @@
+
+cluster={{distcp_pairs[local_cluster]['cluster_name']}}
+file=hdfs-site-delta-template.json
+live_json=live_json.json
+
+
+
+/var/lib/ambari-server/resources/scripts/configs.sh \
+-u admin \
+-p admin \
+-port 8080 \
+set \
+localhost \
+${cluster} \
+hdfs-site \
+${live_json}
+
+
+#Usage: configs.sh [-u userId] [-p password] [-port port] <ACTION> <AMBARI_HOST> <CLUSTER_NAME> <CONFIG_TYPE> [CONFIG_FILENAME | CONFIG_KEY [CONFIG_VALUE]]

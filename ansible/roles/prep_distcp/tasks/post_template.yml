@@ -46,6 +46,20 @@
   when: local_cluster is defined and remote_cluster is defined
   tags: v2
 
+- name: collect_HA_template
+  template:
+    src: collect_HA_template.sh.j2
+    dest: /tmp/collect_HA_template.sh
+  when: local_cluster is defined and remote_cluster is defined
+  tags: v2
+
+- name: apply_HA_template
+  template:
+    src: apply_HA_template.sh.j2
+    dest: /tmp/apply_HA_template.sh
+  when: local_cluster is defined and remote_cluster is defined
+  tags: v2
+
 - name: copypaste_a for cluster_a
   template:
     src: copypaste_a.txt.j2
