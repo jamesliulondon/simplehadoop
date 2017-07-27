@@ -17,4 +17,20 @@ hadoop_name: "{{download_folder}}/hadoop-2.8.0"
 
 ambari:
   repo_url: http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.4.1.0/ambari.repo
+
+distcp_pairs:
+  ip-10-0-3-221.eu-west-1.compute.internal:
+      ambari_server: localhost
+      cluster_name: node0
+      remote_cluster_name: node1
+      nn1: ip-10-0-2-89.eu-west-1.compute.internal
+  ip-10-0-2-89.eu-west-1.compute.internal:
+      cluster_name: node1
+      nn1: ip-10-0-3-221.eu-west-1.compute.internal
+  cluster_a:
+    cluster_name: node0
+    nn1: ip-10-0-2-89.eu-west-1.compute.internal
+  cluster_b:
+    cluster_name: node1
+    nn1: ip-10-0-3-221.eu-west-1.compute.internal
 ...

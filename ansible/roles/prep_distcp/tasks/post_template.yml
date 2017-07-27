@@ -39,6 +39,12 @@
     src: apply_HA_template_b.sh.j2
     dest: /tmp/apply_HA_template_b.sh
 
+- name: hdfs-site-delta-template.json
+  template:
+    src: hdfs-site-delta-template.json.j2
+    dest: /tmp/hdfs-site-delta-template.json
+  when: local_cluster is defined and remote_cluster is defined
+  tags: v2
 
 - name: copypaste_a for cluster_a
   template:

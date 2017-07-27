@@ -1,0 +1,13 @@
+"dfs.nameservices" : "{{distcp_pairs[local_cluster]['cluster_name']}},
+
+
+"dfs.nameservices" : "{{distcp_pairs[local_cluster]['cluster_name']}},{{distcp_pairs[remote_cluster]['cluster_name']}}",
+"dfs.internal.nameservices" : "{{distcp_pairs[local_cluster]['cluster_name']}}",
+"dfs.ha.namenodes.{{distcp_pairs[remote_cluster]['cluster_name']}}" : "{% if distcp_pairs[remote_cluster]['nn1'] is defined %}{{distcp_pairs[remote_cluster]['cluster_name']}}_nn1{% endif %}{% if distcp_pairs[remote_cluster]['nn1'] is defined and distcp_pairs[remote_cluster]['nn2'] is defined %},{% endif %}{% if distcp_pairs[remote_cluster]['nn2'] is defined %}{{distcp_pairs[remote_cluster]['cluster_name']}}_nn2{% endif %}",
+{% if distcp_pairs[remote_cluster]['nn1'] is defined %}
+"dfs.namenode.rpc-address.{{distcp_pairs[remote_cluster]['cluster_name']}}.{{distcp_pairs[remote_cluster]['cluster_name']}}_nn1" : "{{distcp_pairs[remote_cluster]['nn1']}}:8020",
+{% endif %}
+{% if distcp_pairs[remote_cluster]['nn2'] is defined %}
+"dfs.namenode.rpc-address.{{distcp_pairs[remote_cluster]['cluster_name']}}.{{distcp_pairs[remote_cluster]['cluster_name']}}_nn2" : "{{distcp_pairs[remote_cluster]['nn2']}}:8020",
+{% endif %}
+"dfs.client.failover.proxy.provider.{{distcp_pairs[remote_cluster]['cluster_name']}}" : "org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider",

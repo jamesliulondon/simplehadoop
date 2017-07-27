@@ -1,0 +1,5 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+  - name: testjinja
+    template: src=/tmp/hdfs-site-delta-template.json.j2 dest=/tmp/hdfs-site-delta-template.json
