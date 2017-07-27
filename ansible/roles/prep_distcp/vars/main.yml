@@ -1,0 +1,9 @@
+---
+cluster_a:
+  name: node0
+  nn1: ip-10-0-2-89.eu-west-1.compute.internal
+
+cluster_b:
+  name: node1
+  nn1: ip-10-0-3-221.eu-west-1.compute.internal
+...

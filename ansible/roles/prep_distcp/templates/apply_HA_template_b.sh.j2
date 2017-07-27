@@ -1,0 +1,28 @@
+
+cluster=node1
+file=template_b.json
+live_json=live_json
+
+/var/lib/ambari-server/resources/scripts/configs.sh \
+-u admin \
+-p admin \
+-port 8080 \
+get \
+localhost \
+${cluster} \
+hdfs-site \
+${live_json}
+
+sed -i '/"properties" : {/r '${file} ${live_json}
+
+/var/lib/ambari-server/resources/scripts/configs.sh \
+-u admin \
+-p admin \
+-port 8080 \
+set \
+localhost \
+${cluster} \
+hdfs-site \
+${live_json}
+
+#Usage: configs.sh [-u userId] [-p password] [-port port] <ACTION> <AMBARI_HOST> <CLUSTER_NAME> <CONFIG_TYPE> [CONFIG_FILENAME | CONFIG_KEY [CONFIG_VALUE]]

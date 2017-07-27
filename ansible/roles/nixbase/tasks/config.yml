@@ -17,4 +17,7 @@
   service: name=iptables enabled=no
   ignore_errors: yes
 
+- name: remove root block
+  command: sudo sed -i 's/.* ssh/ssh/'  /root/.ssh/authorized_keys
+  tags: remove_root_keys
 ...

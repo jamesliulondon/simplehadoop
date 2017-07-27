@@ -37,8 +37,6 @@
   copy:
     src: masters.txt
     dest: /etc/hosts
-    owner: hadoop
-    group: hadoop
     mode: 0644
     backup: yes
   tags: gen_hostfile
@@ -47,8 +45,6 @@
   copy:
     src: slaves.txt
     dest: /opt/hadoop/etc/hadoop/masters
-    owner: hadoop
-    group: hadoop
     mode: 0644
     backup: yes
   tags: gen_hostfile
@@ -57,10 +53,23 @@
   copy:
     src: slaves.txt
     dest: /opt/hadoop/etc/hadoop/slaves
-    owner: hadoop
-    group: hadoop
     mode: 0644
     backup: yes
   tags: gen_hostfile
 
+- name: install ambari
+  yum:
+    name: "{{item}}"
+  with_items:
+    - ambari-agent
+    - ambari-server
+  tags: ambari
+
+- name: setup ambari
+  command: ambari-server setup -sv
+  tags: ambari
+
+- name: start ambari
+  command: ambari-server start
+  tags: ambari
 ...

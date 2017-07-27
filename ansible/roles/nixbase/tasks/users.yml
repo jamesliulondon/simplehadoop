@@ -31,5 +31,5 @@
     group: hadoop
   with_items: "{{ users.hadoop_users }}"
   tags: create_users
-  
+  ignore_errors: yes
 ...

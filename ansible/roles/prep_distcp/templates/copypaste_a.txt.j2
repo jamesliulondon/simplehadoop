@@ -1,0 +1,12 @@
+copy into Custom hdfs-site
+
+dfs.nameservices = {{cluster_a.name}},{{cluster_b.name}}
+dfs.internal.nameservices = {{cluster_a.name}}
+dfs.ha.namenodes.{{cluster_b.name}} = {% if cluster_b.nn1 is defined %}{{cluster_b.name}}_nn1{% endif %}{% if cluster_b.nn1 is defined and cluster_b.nn2 is defined %},{% endif %}{% if cluster_b.nn2 is defined %}{{cluster_b.name}}_nn2{% endif %} 
+{% if cluster_b.nn1 is defined %}
+dfs.namenode.rpc-address.{{cluster_b.name}}.{{cluster_b.name}}_nn1 = {{cluster_b.nn1}}:8020
+{% endif %}
+{% if cluster_b.nn2 is defined %}
+dfs.namenode.rpc-address.{{cluster_b.name}}.{{cluster_b.name}}_nn2 = {{cluster_b.nn2}}:8020
+{% endif %}
+dfs.client.failover.proxy.provider.{{cluster_b.name}} = org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider

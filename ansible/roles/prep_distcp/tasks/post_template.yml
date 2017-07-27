@@ -1,0 +1,52 @@
+---
+- name: template_a for cluster_a
+  template:
+    src: template_a.json.j2
+    dest: /tmp/template_a.json
+
+- name: template_a for cluster_a1
+  template:
+    src: template_a1.json.j2
+    dest: /tmp/template_a1.json
+
+- name: template_a for cluster_a2
+  template:
+    src: template_a2.json.j2
+    dest: /tmp/template_a2.json
+
+- name: template_b for cluster_b
+  template:
+    src: template_b.json.j2
+    dest: /tmp/template_b.json
+
+- name: template_b1 for cluster_b
+  template:
+    src: template_b1.json.j2
+    dest: /tmp/template_b1.json
+
+- name: template_b2 for cluster_b
+  template:
+    src: template_b2.json.j2
+    dest: /tmp/template_b2.json
+
+- name: apply_HA_template_a
+  template:
+    src: apply_HA_template_a.sh.j2
+    dest: /tmp/apply_HA_template_a.sh
+
+- name: apply_HA_template_b
+  template:
+    src: apply_HA_template_b.sh.j2
+    dest: /tmp/apply_HA_template_b.sh
+
+
+- name: copypaste_a for cluster_a
+  template:
+    src: copypaste_a.txt.j2
+    dest: /tmp/copypaste_a.txt
+
+- name: copypaste_b for cluster_b
+  template:
+    src: copypaste_b.txt.j2
+    dest: /tmp/copypaste_b.txt
+...
