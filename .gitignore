@@ -41,6 +41,8 @@ Thumbs.db
 #############
 .tfstate
 .tfstate.backup
+.terraform/
+.terraform/*
 
 # Ansible #
 ###########
