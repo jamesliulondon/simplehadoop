@@ -17,7 +17,7 @@ variable "aws_region" {
 
 variable "whitelisted_source" {
    description = "this is the public address of your PC"
-   default = "185.69.145.214/32"
+   default = "85.255.235.117/32"
 }
 
 variable "ami" {

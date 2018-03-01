@@ -4,4 +4,7 @@ manage_etc_hosts: true
 
 runcmd:
     - '\sed -i "/HOSTNAME/s/=\(.*\)/=${tf_hostname}/" /etc/sysconfig/network'
+    - '\sed -i "s/#PermitRootLogin yes/PermitRootLogin yes/" /etc/ssh/sshd_config'
+    - '\sed -i "s/^.*ssh-rsa /ssh-rsa /" ~root/.ssh/authorized_keys'
+    - '\echo "root:newpassword" | chpasswd'
     - [init, '6']

@@ -11,5 +11,5 @@ output "cluster" {
   value = ["${format("%s %s %s", "${aws_instance.cluster.*.public_dns}", "${aws_instance.cluster.*.public_ip}", "${aws_instance.cluster.*.private_ip}")}"]
 }
 output "addresses" {
-  value = "${node_count}"
+  value = "${var.node_count}"
 }
